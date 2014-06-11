@@ -4,7 +4,9 @@ install:
   - cpanm -n Dist::Zilla
   - dzil authordeps --missing | cpanm -n
   - cpanm -n Test::CPAN::Changes Test::EOL Test::Fixme Test::NoTabs Test::Pod::Spelling::CommonMistakes Test::Spelling Test::Strict Test::Version Test::Vars || true
-#  - cpanm -n Foo::Bar
+  - cpanm -n Devel::CheckLib HTTP::Tiny
+  - cpanm FFI::Raw -n || true
+  - cpanm -n Test::CChecker HTTP::Tiny
 
 perl:
   - "5.8"
@@ -13,12 +15,15 @@ perl:
   - "5.14"
   - "5.16"
   - "5.18"
+  - "5.19"
 
 #env:
 #  - FOO=bar
 
 #before_script: /bin/true
 
-script: HARNESS_IS_VERBOSE=1 prove -lv t xt
+script:
+  - cpanm -n -v Alien::bz2::Installer
+  - dzil test -v
 
 #after_script: /bin/true

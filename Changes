@@ -1,4 +1,41 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+  - completely new implementation based on Alien::bz2::Installer instead of Alien::Base
+  - license changed to Perl_5, since bzip2 is no longer bundled
+  
+0.11      2014-01-08 07:42:10 -0500 
+  - no support for source install on 64bit Windows Perl (check at configure time)
+  - no support for systems without a compiler (check at configure time)
+
+0.10      2013-12-28 11:45:07 -0500
+  - fix wrong path separator for Cygwin
+
+0.09      2013-12-21 07:31:15 -0500
+  - use -p option instead of -a if that seems to fail (gh#5)
+
+0.08      2013-12-19 15:04:50 -0500
+  - use system libbz2 if available
+
+0.07      2013-12-19 02:47:50 -0500
+  - build tweaks for OpenBSD
+
+0.06      2013-12-18 07:48:16 -0500
+  - bugfix: was passing in include instead of lib dir to -L 
+
+0.05      2013-12-15 07:58:34 -0500
+  - Testing tweaks and additional diagnostic
+  - MSWin32: Don't depend on po2dll, as that may not be in the PATH
+    (use a Perl wrapper around Alien::o2dll instead)
+
+0.04      2013-12-13 16:46:11 -0500
+  - First CPAN release
+
+0.03      2013-12-13 16:17:17 -0500
+  - MSWin32 install support (oops)
+
+0.02      2013-12-13 15:57:10 -0500
+  - MSWin32 support
+
+0.01      2013-12-06 08:46:49 -0500
   - initial version
