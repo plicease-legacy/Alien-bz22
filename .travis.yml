@@ -17,13 +17,10 @@ perl:
   - "5.18"
   - "5.19"
 
-#env:
-#  - FOO=bar
-
-#before_script: /bin/true
-
 script:
   - cpanm -n -v Alien::bz2::Installer
   - dzil test -v
 
-#after_script: /bin/true
+env:
+  - ALIEN_BZ2=share
+  - ALIEN_BZ2=system
