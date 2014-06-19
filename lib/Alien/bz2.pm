@@ -159,7 +159,7 @@ sub dlls
   if($class->install_type eq 'system')
   {
     require Alien::bz2::Installer;
-    @list = Alien::bz2::Installer->system_install->dlls;
+    @list = Alien::bz2::Installer->system_install( type => 'ffi', alien => 0 )->dlls;
   }
   else
   {
@@ -167,6 +167,17 @@ sub dlls
             @{ $cf->config("dlls") };
   }
   wantarray ? @list : $list[0];
+}
+
+=head2 version
+
+Returns the version of bz2.
+
+=cut
+
+sub version
+{
+  $cf->config("version");
 }
 
 =head2 install_type

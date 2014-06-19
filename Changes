@@ -1,6 +1,7 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+  - add version method
 
 0.12      2014-06-11 15:34:01 -0400
   - completely new implementation based on Alien::bz2::Installer instead of Alien::Base

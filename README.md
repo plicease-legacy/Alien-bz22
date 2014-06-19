@@ -88,6 +88,10 @@ that make up bz2.  This can be used for [FFI::Raw](https://metacpan.org/pod/FFI:
 
 Returns just the first dynamic library found in scalar context.
 
+## version
+
+Returns the version of bz2.
+
 ## install\_type
 
 Returns the install type, one of either `system` or `share`.
