@@ -1,7 +1,10 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+
+0.14      2014-10-08 12:10:54 -0400
   - add version method
+  - fix for Strawberry 5.20
 
 0.12      2014-06-11 15:34:01 -0400
   - completely new implementation based on Alien::bz2::Installer instead of Alien::Base
