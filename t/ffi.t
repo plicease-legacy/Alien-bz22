@@ -8,9 +8,12 @@ BEGIN {
     unless eval q{ use FFI::Raw 0.31; 1 };
 }
 
-plan tests => 1;
 
 my($dll) = Alien::bz2->new->dlls;
+
+plan skip_all => 'requires dynamic bz2' if $dll =~ /\.a$/;
+
+plan tests => 1;
 
 note "dll = $dll";
 my $get_version = FFI::Raw->new($dll, 'BZ2_bzlibVersion',FFI::Raw::str);
