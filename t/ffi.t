@@ -12,6 +12,7 @@ plan tests => 1;
 
 my($dll) = Alien::bz2->new->dlls;
 
+note "dll = $dll";
 my $get_version = FFI::Raw->new($dll, 'BZ2_bzlibVersion',FFI::Raw::str);
 
 sub main
