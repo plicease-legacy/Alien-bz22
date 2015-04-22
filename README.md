@@ -56,7 +56,7 @@ or [IO::Compress::Bzip2](https://metacpan.org/pod/IO::Compress::Bzip2).
 This distribution installs bz2 so that it can be used by other Perl
 distributions.  If already installed for your operating system, and it can
 be found, this distribution will use the bz2 that comes with your
-operating system, otherwise it will download it from the internet, build
+operating system, otherwise it will download it from the Internet, build
 and install it.
 
 If you set the environment variable ALIEN\_BZ2 to 'share', this
