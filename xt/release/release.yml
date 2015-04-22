@@ -9,6 +9,8 @@ pod_spelling_system:
     - cflags
     - dlls
     - libs
+    - bz2
+    - bzip2
 
 pod_coverage:
   skip: 0
