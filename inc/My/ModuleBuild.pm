@@ -122,6 +122,13 @@ sub ACTION_build
   }
   
   $self->SUPER::ACTION_build(@_);
+  
+  my $module = $self->module_name;
+  my @parts = split /::/, $module;
+  my $arch_dir = File::Spec->catdir($self->blib, 'arch', 'auto', @parts);
+  File::Path::mkpath($arch_dir, 0, oct(777)) unless -d $arch_dir;
+  open my $fh, '>', File::Spec->catfile($arch_dir, $parts[-1].".txt");
+  close $fh;  
 }
 
 1;

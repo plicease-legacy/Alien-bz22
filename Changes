@@ -1,6 +1,7 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+  - install into arch specific directory
 
 0.14      2014-10-08 12:10:54 -0400
   - add version method
