@@ -12,8 +12,8 @@ Build.PL
     my $alien = Alien::bz2->new;
     my $build = Module::Build->new(
       ...
-      extra_compiler_flags => $alien->cflags,
-      extra_linker_flags   => $alien->libs,
+      extra_compiler_flags => [$alien->cflags],
+      extra_linker_flags   => [$alien->libs],
       ...
     );
     
@@ -27,25 +27,17 @@ Makefile.PL
     my $alien = Alien::bz2;
     WriteMakefile(
       ...
-      CFLAGS => $alien->cflags,
-      LIBS   => $alien->libs,
+      CCFLAGS => scalar $alien->cflags,
+      LIBS   => [$alien->libs],
     );
 
-FFI::Raw
+FFI::Platypus
 
     use Alien::bz2;
-    use FFI::Raw;
+    use FFI::Platypus;
     
-    my($dll) = Alien::bz2->new->dlls;
-    FFI::Raw->new($dll, 'BZ2_bzlibVersion', FFI::Raw::str);
-
-FFI::Sweet
-
-    use Alien::bz2;
-    use FFI::Sweet;
-    
-    ffi_lib( Alien::bz2->new->dlls );
-    attach_function 'BZ2_bzlibVersion', [], _str;
+    my $ffi = FFI::Platypus->new(lib => [Alien::bz2->new->dlls]);
+    $ffi->attach( BZ2_bzlibVersion => [] => 'string' );
 
 # DESCRIPTION
 
