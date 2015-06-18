@@ -1,6 +1,7 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+  - Honour the ALIEN_FORCE environment variable
 
 0.16      2015-04-22 17:28:44 -0400
   - Fixes to synopsis

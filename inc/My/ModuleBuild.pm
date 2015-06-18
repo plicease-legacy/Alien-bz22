@@ -34,6 +34,8 @@ sub new
 
   my $system;
 
+  $ENV{ALIEN_BZ2} = 'share' if $ENV{ALIEN_FORCE} && ! defined $ENV{ALIEN_BZ2};
+
   unless(($ENV{ALIEN_BZ2} || 'system') eq 'share')
   {
     $system = eval {
